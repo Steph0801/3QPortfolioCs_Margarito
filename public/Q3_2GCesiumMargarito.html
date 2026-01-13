@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Q3 2nd Graded Exercise">
+    <meta name="keywords" content="HTML Forms">
+    <title>Sign-up Page</title>
+   <style>
+    body{
+        padding: 25px;
+        font-family: arial;
+        width: 80%;
+        margin-left: 10%;
+        background-color: #ADD8E6;
+    }
+
+    .title {
+        color: rgb(8, 99, 173);
+    }
+
+    fieldset:nth-child(2) {
+        margin-top: 20px;
+    }
+
+    legend {
+        background: rgb(8, 99, 173);
+        color: rgb(186, 236, 252);
+        padding: 5px;
+    }
+    label {
+        margin: 5%;
+    }
+    a {
+        background:rgb(8, 99, 173);
+        color:rgb(186, 236, 252);
+        padding: 5px;
+        text-decoration: none;
+    }
+    input:focus{
+        color:aliceblue;
+        border-color: aqua;
+        background-color:rgb(8, 99, 173);
+    }
+    textarea:focus{
+        color:aliceblue;
+        border-color: aqua;
+        background-color:rgb(8, 99, 173);
+    }
+    select:focus{
+        color:aliceblue;
+        border-color: aqua;
+        background-color:rgb(8, 99, 173);
+    }
+    section {
+      background-color: aliceblue;
+      padding:1vw;
+      padding-bottom:4vw;
+      border-radius: 3vw;
+    }
+    </style>
+  </head>
+  <body>
+     <header>
+        <nav class="navbar">
+            <a href="../../index.html"> Home </a>
+        </nav>
+    </header>
+    <br/><br/>
+
+    <section>
+      <h1 class="title">Club Sign-ups</h1>
+      <form id="dForm" action="submit" method="post" 
+      onsubmit="return confirm('Do you want to submit the form?');"
+      onreset="return confirm('Do you want to reset the form?');"
+      onblur="">
+        
+
+        <fieldset>
+          <legend>Personal Information</legend><br/>
+          <label> StudenID: 
+            <input type="number" name="ID" id="ID" required />
+          </label><br/><br/>
+          <label> Full Name:
+            <input type="text" name="fName" id="fName" required />
+          </label><br/><br/>
+          <label> Birthday:
+            <input type="date" name="dob" id="dob" required />
+          </label><br/><br/>
+          <label> Email address:
+            <input type="email" name="eAdd" id="eAdd" required />
+          </label><br/><br/>
+          <label> Mobile phone:
+            <input type="text" name="mPhone" id="mPhone" required />
+          </label><br/><br/>
+        </fieldset>
+
+        <fieldset>
+            <legend>School Credentials</legend><br/>
+            <label> Grade level:
+                <select name="gLvl" id="gLvl" required >
+                    <option value="Grade 7">Grade 7</option>
+                    <option value="Grade 8">Grade 8</option>
+                    <option value="Grade 9">Grade 9</option>
+                    <option value="Grade 10">Grade 10</option>
+                    <option value="Grade 11">Grade 11</option>
+                    <option value="Grade 12">Grade 12</option>
+                </select>
+              </label><br/><br/>
+              <label> Intern/Extern:
+                <input type="radio" name="int" value="int" required /> Intern
+                <input type="radio" name="ext" value="ext" required /> Extern
+              </label><br/><br/>
+              <label> Preferred Organization / Club:
+                <select name="gLvl" id="gLvl" required>
+                    <option value="tkd">Sigasig (Taekwondo Club)</option>
+                    <option value="chem">ATOM (Chemistry Club)</option>
+                    <option value="sdk">Sapienara (Sudoku Club)</option>
+                    <option value="tom">Tomorrow(Data Science Club)</option>
+                    <option value="aks">AKSIS (Social Action Club)</option>
+                    <option value="alnt">Alianti (Ultimate Frisbee Club)</option>
+                </select>
+              <label><br/><br/>
+              <label> Why do you want to join: 
+                <textarea name="about" id="about"></textarea>
+              </label><br/><br/>
+        </fieldset>
+
+        <br/>
+        <fieldset>
+          <legend>Action Buttons</legend>
+          <button type="submit"> Submit </button>
+          <input type="reset" value=" Clear " />
+        </fieldset>
+      </form>
+    </section>
+  </body>
+</html>
