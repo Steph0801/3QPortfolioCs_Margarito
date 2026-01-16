@@ -6,58 +6,57 @@
     <meta name="description" content="Q3 2nd Graded Exercise">
     <meta name="keywords" content="HTML Forms">
     <title>Sign-up Page</title>
-   <style>
-    body{
-        padding: 25px;
-        font-family: arial;
-        width: 80%;
-        margin-left: 10%;
-        background-color: #ADD8E6;
-    }
+    <style>
+      body{
+          padding: 25px;
+          font-family: arial;
+          width: 80%;
+          margin-left: 10%;
+          background-color: #ADD8E6;
+      }
+      .title {
+          color: rgb(8, 99, 173);
+      }
 
-    .title {
-        color: rgb(8, 99, 173);
-    }
+      fieldset:nth-child(2) {
+          margin-top: 20px;
+      }
 
-    fieldset:nth-child(2) {
-        margin-top: 20px;
-    }
-
-    legend {
-        background: rgb(8, 99, 173);
-        color: rgb(186, 236, 252);
-        padding: 5px;
-    }
-    label {
-        margin: 5%;
-    }
-    a {
-        background:rgb(8, 99, 173);
-        color:rgb(186, 236, 252);
-        padding: 5px;
-        text-decoration: none;
-    }
-    input:focus{
-        color:aliceblue;
-        border-color: aqua;
-        background-color:rgb(8, 99, 173);
-    }
-    textarea:focus{
-        color:aliceblue;
-        border-color: aqua;
-        background-color:rgb(8, 99, 173);
-    }
-    select:focus{
-        color:aliceblue;
-        border-color: aqua;
-        background-color:rgb(8, 99, 173);
-    }
-    section {
-      background-color: aliceblue;
-      padding:1vw;
-      padding-bottom:4vw;
-      border-radius: 3vw;
-    }
+      legend {
+          background: rgb(8, 99, 173);
+          color: rgb(186, 236, 252);
+          padding: 5px;
+      }
+      label {
+          margin: 5%;
+      }
+      a {
+          background:rgb(8, 99, 173);
+          color:rgb(186, 236, 252);
+          padding: 5px;
+          text-decoration: none;
+      }
+      input:focus{
+          color:aliceblue;
+          border-color: aqua;
+          background-color:rgb(143, 188, 224);
+      }
+      textarea:focus{
+          color:aliceblue;
+          border-color: aqua;
+          background-color:rgb(143, 188, 224);
+      }
+      select:focus{
+          color:aliceblue;
+          border-color: aqua;
+          background-color:rgb(143, 188, 224);
+      }
+      section {
+        background-color: aliceblue;
+        padding:1vw;
+        padding-bottom:4vw;
+        border-radius: 3vw;
+      }
     </style>
   </head>
   <body>
@@ -72,26 +71,25 @@
       <h1 class="title">Club Sign-ups</h1>
       <form id="dForm" action="submit" method="post" 
       onsubmit="return confirm('Do you want to submit the form?');"
-      onreset="return confirm('Do you want to reset the form?');"
-      onblur="">
+      onreset="return confirm('Do you want to reset the form?');">
         
 
         <fieldset>
           <legend>Personal Information</legend><br/>
           <label> StudenID: 
-            <input type="number" name="ID" id="ID" required />
+            <input type="number" name="ID" id="ID" onblur="noInput(this)" required />
           </label><br/><br/>
           <label> Full Name:
-            <input type="text" name="fName" id="fName" required />
+            <input type="text" name="fName" id="fName" onblur="noInput(this)" required />
           </label><br/><br/>
           <label> Birthday:
-            <input type="date" name="dob" id="dob" required />
+            <input type="date" name="dob" id="dob" onblur="noInput(this)" required />
           </label><br/><br/>
           <label> Email address:
-            <input type="email" name="eAdd" id="eAdd" required />
+            <input type="email" name="eAdd" id="eAdd" onblur="noInput(this)" required />
           </label><br/><br/>
           <label> Mobile phone:
-            <input type="text" name="mPhone" id="mPhone" required />
+            <input type="text" name="mPhone" id="mPhone" onblur="noInput(this)" required />
           </label><br/><br/>
         </fieldset>
 
@@ -122,7 +120,7 @@
                 </select>
               <label><br/><br/>
               <label> Why do you want to join: 
-                <textarea name="about" id="about"></textarea>
+                <textarea name="about" id="about" onblur="noInput(this)"></textarea>
               </label><br/><br/>
         </fieldset>
 
@@ -134,5 +132,13 @@
         </fieldset>
       </form>
     </section>
+
+    <script>
+      function noInput(ele){
+        const input = getElementById
+        if()
+        ele.style.backgroundColor = "red";
+      }
+    </script>
   </body>
 </html>
