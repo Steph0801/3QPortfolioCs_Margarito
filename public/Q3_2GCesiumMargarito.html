@@ -135,9 +135,11 @@
 
     <script>
       function noInput(ele){
-        const input = getElementById
-        if()
-        ele.style.backgroundColor = "red";
+        if(ele.value.trim()===""){
+          ele.style.backgroundColor = "red";
+        } else{
+          ele.style.backgroundColor = "white";
+        }
       }
     </script>
   </body>
