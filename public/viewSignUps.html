@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Q3 2nd Graded Exercise">
+    <meta name="keywords" content="HTML Forms">
+    <title>Sign-up Page</title>
+    <style>
+      body{
+          padding: 25px;
+          font-family: arial;
+          width: 80%;
+          margin-left: 10%;
+          background-color: #ADD8E6;
+      }
+      .title {
+          color: rgb(8, 99, 173);
+      }
+
+      fieldset:nth-child(2) {
+          margin-top: 20px;
+      }
+
+      legend {
+          background: rgb(8, 99, 173);
+          color: rgb(186, 236, 252);
+          padding: 5px;
+      }
+      label {
+          margin: 5%;
+      }
+      a {
+          background:rgb(8, 99, 173);
+          color:rgb(186, 236, 252);
+          padding: 5px;
+          text-decoration: none;
+      }
+      input:focus{
+          color:aliceblue;
+          border-color: aqua;
+          background-color:rgb(143, 188, 224);
+      }
+      textarea:focus{
+          color:aliceblue;
+          border-color: aqua;
+          background-color:rgb(143, 188, 224);
+      }
+      select:focus{
+          color:aliceblue;
+          border-color: aqua;
+          background-color:rgb(143, 188, 224);
+      }
+      section {
+        background-color: aliceblue;
+        padding:1vw;
+        padding-bottom:4vw;
+        border-radius: 3vw;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+     <header>
+        <nav class="navbar">
+            <a href="https://steph0801.github.io/3QPortfolioCs_Margarito/"> Home </a>
+        </nav>
+    </header>
+    <br/><br/>
+
+    <section>
+        <h1 style="color: rgb(8, 99, 173)">Registered Students</h1>
+
+        <label>Filter by Club: </label>
+        <select id="filter" onchange="display()">
+                <option value="All">Show All Clubs</option>
+                <option value="Sigasig">Sigasig (Taekwondo Club)</option>
+                <option value="ATOM">ATOM (Chemistry Club)</option>
+                <option value="Sapienara">Sapienara (Sudoku Club)</option>
+                <option value="Tomorrow">Tomorrow(Data Science Club)</option>
+                <option value="AKSIS">AKSIS (Social Action Club)</option>
+                <option value="Alianti">Alianti (Ultimate Frisbee Club)</option>
+        </select>
+
+        <div id="table"></div>
+        <div id="counter"></div>
+
+        <br><br><a href="Q3_2GCesiumMargarito.html">
+            <button type="button">Sign-up form</button>
+        </a>
+    </section>
+
+    <script>
+        function display(){
+            const container = document.getElementById('table');
+            const counter = document.getElementById('counter');
+            const filter = document.getElementById('filter').value;
+
+            container.innerHTML="";
+            counter.innerHTML="";
+
+            const data = JSON.parse(localStorage.getItem('clubSignups')) || [];
+
+            const filtered = (filter === "All") ? data:data.filter(item => item.club === filter);
+
+                if (filtered.length===0){
+                    container.innerHTML = "<p> No Sign Ups were made </p>";
+                    counter.innerHTML = "Total Signup: 0";
+                    return;
+                }
+
+                let table =`<table> 
+                    <tr> 
+                        <th>Club</th>
+                        <th>ID</th>
+                        <th>Fullname</th>
+                        <th>Grade</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Intern|Extern</th>
+                    </tr>`;
+                
+                filtered.forEach(item => {
+                    table += `<tr> 
+                        <td>${item.club}</td>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.grade}</td>
+                        <td>${item.email}</td>
+                        <td>${item.phone}</td>
+                        <td>${item.living}</td>
+                    </tr>`;
+                });
+
+                table += "</table>";
+                container.innerHTML = `<div class=tible>${table}</div>`;
+                counter.innerHTML = `<br>Total Signup: ${filteredData.length}`;
+        }
+
+        window.onload = display;
+    </script>
+</body>
+</html>
