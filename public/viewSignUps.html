@@ -109,7 +109,7 @@
                     return;
                 }
 
-                //generate table
+                //generate table header/s
 
                 let table =`<table> 
                     <tr> 
@@ -122,7 +122,7 @@
                         <th>Intern|Extern</th>
                     </tr>`;
                 
-                //display input/info
+                //generate each input/info for each submission
                 filtered.forEach(item => {
                     table += `<tr> 
                         <td>${item.club}</td>
