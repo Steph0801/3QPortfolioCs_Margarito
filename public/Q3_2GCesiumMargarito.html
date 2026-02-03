@@ -69,10 +69,7 @@
 
     <section>
       <h1 class="title">Club Sign-ups</h1>
-      <form id="dForm" action="submit" method="post" 
-      onsubmit="return confirm('Do you want to submit the form?');"
-      onreset="return confirm('Do you want to reset the form?');">
-        
+      <form id="dForm">
         <fieldset>
           <legend>Personal Information</legend><br/>
           <label> StudenID: 
@@ -105,17 +102,17 @@
                 </select>
               </label><br/><br/>
               <label> Intern/Extern:
-                <input type="radio" name="living" value="int" required/> Intern
-                <input type="radio" name="living" value="ext" required/> Extern
+                <input type="radio" name="living" value="Intern" required/> Intern
+                <input type="radio" name="living" value="Extern" required/> Extern
               </label><br/><br/>
               <label> Preferred Organization / Club:
-                <select name="gLvl" id="gLvl" required>
-                    <option value="tkd">Sigasig (Taekwondo Club)</option>
-                    <option value="chem">ATOM (Chemistry Club)</option>
-                    <option value="sdk">Sapienara (Sudoku Club)</option>
-                    <option value="tom">Tomorrow(Data Science Club)</option>
-                    <option value="aks">AKSIS (Social Action Club)</option>
-                    <option value="alnt">Alianti (Ultimate Frisbee Club)</option>
+                <select name="club" id="club" required>
+                    <option value="Sigasig">Sigasig (Taekwondo Club)</option>
+                    <option value="ATOM">ATOM (Chemistry Club)</option>
+                    <option value="Sapienara">Sapienara (Sudoku Club)</option>
+                    <option value="Tomorrow">Tomorrow(Data Science Club)</option>
+                    <option value="AKSIS">AKSIS (Social Action Club)</option>
+                    <option value="Alianti">Alianti (Ultimate Frisbee Club)</option>
                 </select>
               <label><br/><br/>
               <label> Why do you want to join: 
@@ -127,8 +124,10 @@
         <fieldset>
           <legend>Action Buttons</legend>
           <button type="submit"> Submit </button>
-          <input type="reset" value=" Clear " />
-        </fieldset>
+          <input type="reset" value="Clear"/>
+          <a href="viewSignUps.html">
+            <button type="button">View Signups</button>
+          </a>
       </form>
     </section>
 
@@ -140,6 +139,29 @@
           ele.style.backgroundColor = "white";
         }
       }
+
+      document.getElementById('dForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if(confirm("Are you sure you want to submit?")){
+          let signups = JSON.parse(localStorage.getItem('clubSignups')) || [];
+
+          const entry = {
+            id: document.getElementById('ID').value,
+            name: document.getElementById('fName').value,
+            dob: document.getElementById('dob').value,
+            email: document.getElementById('eAdd').value,
+            phone: document.getElementById('mPhone').value,
+            grade: document.getElementById('gLvl').value,
+            living: document.querySelector('input[name="living"]:checked').value,
+            club: document.getElementById('club').value,
+          };
+
+          signups.push(entry);
+          localStorage.setItem('clubSignups', JSON.stringify(signups));
+          this.reset();
+        }
+      });
     </script>
   </body>
 </html>
