@@ -132,6 +132,7 @@
     </section>
 
     <script>
+      //onblur function
       function noInput(ele){
         if(ele.value.trim()===""){
           ele.style.backgroundColor = "red";
@@ -140,12 +141,15 @@
         }
       }
 
+      //submit event
       document.getElementById('dForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); //prevents from reloading the page
 
         if(confirm("Are you sure you want to submit?")){
-          let signups = JSON.parse(localStorage.getItem('clubSignups')) || [];
+          //saves input
+          let signups = JSON.parse(localStorage.getItem('clubSignups'));
 
+          //objects to contain info
           const entry = {
             id: document.getElementById('ID').value,
             name: document.getElementById('fName').value,
@@ -157,9 +161,9 @@
             club: document.getElementById('club').value,
           };
 
-          signups.push(entry);
+          signups.push(entry); //appends the object to localStorage, signups
           localStorage.setItem('clubSignups', JSON.stringify(signups));
-          this.reset();
+          this.reset(); //resets input when submitted
         }
       });
     </script>

@@ -109,6 +109,8 @@
                     return;
                 }
 
+                //generate table
+
                 let table =`<table> 
                     <tr> 
                         <th>Club</th>
@@ -120,6 +122,7 @@
                         <th>Intern|Extern</th>
                     </tr>`;
                 
+                //display input/info
                 filtered.forEach(item => {
                     table += `<tr> 
                         <td>${item.club}</td>
@@ -133,11 +136,11 @@
                 });
 
                 table += "</table>";
-                container.innerHTML = `<div class=tible>${table}</div>`;
-                counter.innerHTML = `<br>Total Signup: ${filteredData.length}`;
+                container.innerHTML = `<div class=tible>${table}</div>`; //display table
+                counter.innerHTML = `<br>Total Signup: ${filteredData.length}`; //display total number of sign-ups
         }
 
-        window.onload = display;
+        window.onload = display; //ensures the table shows when site is visited
     </script>
 </body>
 </html>
